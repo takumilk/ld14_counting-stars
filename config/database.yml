@@ -1,7 +1,7 @@
 default_env: &default
   adapter: postgresql
   encoding: unicode
-  database: bbs_original
+  database: counting_stars
 
 development:
   <<: *default
