@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>counting stars</title>
+  <title>Counting Stars</title>
       <!--bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -13,30 +13,19 @@
       <!--style.css-->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="login-all">
+<body class="login-all" >
  <div>
     <div class="form">
         <div class="text-white mb-4">星でも数えようじゃないか</div>
         <img src="images/counting_stars_logo.png" alt="logo" />
-        <form action="/signin" method="post">
-            <input type="text" name="mail" placeholder="メール"><br>
-            <input type="password" name="password" placeholder="password"><br>
-        　　<input type="submit" value="ログイン">
-        </form>
+            <form action="/signup" method="post" enctype="multipart/form-data">
+                <input type="text" name="username" placeholder="username"><br>
+                <input type="file" name="file" placeholder="file" class="text-white"  accept="image/png,image/jpeg"><br>
+                <input type="password" name="password" placeholder="password"><br>
+                <input type="password" name="password_confirmation" placeholder="password確認"><br>
+                <input type="submit" value="新規登録">
+            </form>
     </div>
  </div>
 </body>
 </html>
-
-
-
-
-
-
-
-<form action="/signup" method="post">
-    <input type="text" name="mail" placeholder="メール"><br>
-    <input type="password" name="password" placeholder="password"><br>
-　　<input type="password" name="password_confirmation" placeholder="password確認"><br>
-　　<input type="submit" value="新規登録">
-</form>

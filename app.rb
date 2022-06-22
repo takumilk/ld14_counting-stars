@@ -5,8 +5,17 @@ require './models.rb'
 
 enable :sessions 
 
+
+before do
+ Dotenv.load
+ Cloudinary.config do |config|
+     config.cloud_name=ENV["CLOUD_NAME"]
+     config.api_key   =ENV["CLOUDINARY_API_KEY"]
+     config.api_secret=ENV["CLOUDINARY_API_SECRET"]
+  end
+end
+
 get "/" do
-#  erb :index
  redirect "/signin"
 end
 
@@ -27,14 +36,23 @@ post "/signin" do
 end
 
 post "/signup" do
-    @user = User.create(
-        mail: params[:mail],
+     img_url = ''
+     if params[:file]
+        img = params[:file]
+        tempfile =img[:tempfile]
+        upload =Cloudinary::Uploader.upload(tempfile.path)
+        img_url =upload["url"]
+     end
+ 
+    user = User.create(
+        username: params[:mail],
         password: params[:password],
-        password_confirmation: params[:password_confirmation]
+        password_confirmation: params[:password_confirmation],
+        img: img_url,
         )
-    p @user.id
+ 
     if user.persisted?
-        session[:user] = @user.id
+        session[:user] = user.id
     end
     redirect "/"
 end
