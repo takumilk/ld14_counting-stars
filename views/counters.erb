@@ -13,23 +13,18 @@
       <!--style.css-->
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="login-all">
+
+<body class="counter-all" >
  <div>
-    <div class="form">
-        <div class="text-white mb-4">星でも数えようじゃないか</div>
-        <img src="images/counting_stars_logo.png" alt="logo" />
-        <form action="/signin" method="post">
-            <input type="text" name="username" placeholder="username" class="text-secondary" style="width: 20vw; height: 4vh; margin-top: 2%; margin-bottom: 1%; "><br>
-            <input type="password" name="password" placeholder="password" style="margin-bottom: 1%; width: 20vw; height: 4vh; "><br>
-            <input type="submit" value="SIGN IN">
-        </form>
-        <label for="signup" class="text-white">新規登録はこちら</label>
-            <form action="/signup" method="get">
-                <input type="submit" id="signup" style="width: 10px; opacity:0; border: none; outline: none;">
-            </form>
+    <div class="form ">
+        <% unless session[:user] %>
+         <a href="/signin">ログイン</a><a href="/signup">新規登録</a><br>
+         <h2>未ログイン</h2>
+        <% else %>
+         <a href="/signout">ログアウト</a>
+         <h2><%= User.find(session[:user]).username %>としてログイン</h2>
+        <% end %>
     </div>
  </div>
 </body>
 </html>
-
-

@@ -15,16 +15,21 @@
 </head>
 <body class="login-all" >
  <div>
-    <div class="form">
+    <div class="form ">
         <div class="text-white mb-4">星でも数えようじゃないか</div>
         <img src="images/counting_stars_logo.png" alt="logo" />
+        <div class="text　text-secondary">
             <form action="/signup" method="post" enctype="multipart/form-data">
-                <input type="text" name="username" placeholder="username"><br>
-                <input type="file" name="file" placeholder="file" class="text-white"  accept="image/png,image/jpeg"><br>
-                <input type="password" name="password" placeholder="password"><br>
-                <input type="password" name="password_confirmation" placeholder="password確認"><br>
-                <input type="submit" value="新規登録">
+                <input type="text" name="username" placeholder="username" class="text-secondary" style="width: 20vw; height: 4vh; margin-top: 2%; margin-bottom: 1%; "><br>
+                <input type="file" name="file" placeholder="file" class="text-white"  accept="image/png,image/jpeg" style="width: 20vw; height: 4vh; margin-bottom: 1%; "><br>
+                <input type="password" name="password" placeholder="password" style="margin-bottom: 1%; width: 20vw; height: 4vh; "><br>
+                <input type="password" name="password_confirmation" placeholder="password確認" style="color: black; margin-bottom: 1%; width: 20vw; height: 4vh; "><br>
+                <input type="submit" value="SIGN UP" style="width: 20vw; height: 4vh;">
             </form>
+             <a href="/signin">
+              <button type="button" class="mt-2" style="margin-left: 7vw;">すでにアカウントを持っている</button>
+             </a>
+        </div>
     </div>
  </div>
 </body>

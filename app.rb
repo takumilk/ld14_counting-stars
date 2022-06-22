@@ -28,7 +28,7 @@ get "/signup" do
 end
 
 post "/signin" do
-    user = User.find_by(mail: params[:mail])
+    user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
         session[:user] = user.id
     end
@@ -45,7 +45,7 @@ post "/signup" do
      end
  
     user = User.create(
-        username: params[:mail],
+        username: params[:username],
         password: params[:password],
         password_confirmation: params[:password_confirmation],
         img: img_url,
@@ -53,8 +53,14 @@ post "/signup" do
  
     if user.persisted?
         session[:user] = user.id
+        redirect "/counters"
+    else
+        redirect "/"
     end
-    redirect "/"
+end
+    
+get "/counters" do
+    erb :counters
 end
     
 get "/signout" do
