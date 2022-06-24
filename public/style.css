@@ -4,7 +4,7 @@
 }
 
 .form{
-  margin-top: 25vh;
+  margin-top: 20vh;
   outline: none;
 }
 
@@ -15,4 +15,112 @@ input{
 
 ::placeholder {
   color: black;
+}
+
+body {
+    padding-top: 90px; /* ヘッダーの後ろに要素が隠れないようにするため */
+}
+
+header {
+    width: 100%; /* 幅いっぱいを指定 */
+    height: 50px; /* 高さを50pxに指定 */
+    background: black; /* 背景色にグレーを指定 */
+    padding: 10px 10px; /* ヘッダーに上下左右それぞれ余白を指定 
+    box-sizing: border-box; /* padding分を含んで幅を100%にするため */
+    position: fixed; /* ウィンドウを基準に画面に固定 */
+    top: 0; /* 上下の固定位置を上から0pxにする */
+    left: 0; /* 左右の固定位置を左から0pxにする */
+    display: flex; /* 中の要素を横並びにする */
+    align-items: center; /* 中の要素を上下中央に並べる */
+}
+
+header .gnav .menu {
+    display: flex; /* 中の要素を横並びにする */
+    justify-content: flex-end;
+}
+
+header .gnav .menu li {
+    list-style: none; /* リストの[・]を消す */
+     color: white;
+}
+
+header .gnav .menu li + li {
+    margin-left: 20px; /* メニューそれぞれに間隔をあけるため */
+}
+
+.menu{
+  display: flex;
+  justify-content: flex-end;
+}
+main {
+    height: 100vw; /* スクロールの演出を見れるようにmainに高さを指定 */
+    text-align:center;
+}
+
+
+.create_count{
+     width: 15vw;
+     height: 5vh;
+     border: none;
+     background: #ffd700;
+     color: white;
+     font-weight: bold;
+}
+
+.counter-box {
+    position: relative;
+}
+
+.title{
+    width: 100px;
+    text-align: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    font-size: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+}
+
+.photo{
+    width: 30px;
+}
+
+
+a{
+    color: white;
+}
+
+.row{
+    width: 80vw;
+    margin:0 auto;
+}
+
+.plus{
+    color: white; 
+    background-color: cornflowerblue;
+    width: 10vw;
+    height: 30px;
+    margin-bottom: 10px;
+    border: none;
+    font-weight: bold; 
+}
+
+.delete{
+    color: white; 
+    background-color: silver;
+    width: 10vw;
+    margin-bottom: 10px;
+    border: none;
+    font-weight: bold; 
+}
+
+.prof{
+    width: 10vw;
+    height: 10vw;
+    margin:0 auto;
+    border-radius: 50%; 
 }

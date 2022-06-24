@@ -31,8 +31,10 @@ post "/signin" do
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
         session[:user] = user.id
+        redirect "/counters"
+    else
+        redirect "/"
     end
-    redirect "/"
 end
 
 post "/signup" do
@@ -60,10 +62,60 @@ post "/signup" do
 end
     
 get "/counters" do
+   @counters = Counter.all.order("id desc")
+   if session[:user].present?
     erb :counters
+   else
+     redirect "/"
+   end
 end
-    
+
+post "/counters" do
+   
+    redirect "/newcounter"
+end    
+
 get "/signout" do
     session[:user] = nil
     redirect "/"
+end
+
+get "/newcounter" do
+    erb :create_counter
+end
+
+post "/newcounter" do
+     img_url = ''
+     if params[:counter_file]
+        img = params[:counter_file]
+        tempfile =img[:tempfile]
+        upload =Cloudinary::Uploader.upload(tempfile.path)
+        img_url =upload["url"]
+     end
+ 
+    counter = Counter.create(
+        countername: params[:counter_name],
+        counter_number: 0,
+        img: img_url,
+        user_id: session[:user]
+        )
+        
+    redirect  "/counters"
+end
+
+post '/plus/:id' do
+  counter = Counter.find(params[:id])
+  counter.counter_number = counter.counter_number + 1
+  counter.save
+  redirect '/counters'
+end
+
+post "/delete/:id" do
+  Counter.find(params[:id]).destroy
+  redirect '/counters'
+end
+
+
+get "/user" do
+    erb :user
 end

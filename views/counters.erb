@@ -13,18 +13,46 @@
       <!--style.css-->
     <link rel="stylesheet" href="style.css">
 </head>
+<body>
+<header>
+    <img src="images/counting_stars_logo2.png" alt="logo2" />
+    <nav class="gnav">
+        <ul class="menu">
+            <li><div class="top">
+             <a href="/user"><%= User.find(session[:user]).username %></a>
+            </div></li>
+            <li><div class="top">
+             <a href="/signout">Signout</a>
+            </div></li>
+        </ul>
+    </nav>
+</header>
 
-<body class="counter-all" >
- <div>
-    <div class="form ">
-        <% unless session[:user] %>
-         <a href="/signin">ログイン</a><a href="/signup">新規登録</a><br>
-         <h2>未ログイン</h2>
-        <% else %>
-         <a href="/signout">ログアウト</a>
-         <h2><%= User.find(session[:user]).username %>としてログイン</h2>
+<main>
+    
+    <button class="create_count mb-4" onclick="location.href='/newcounter'">CREATE NEW COUNT</button>
+  <div class="container-fluid">
+   <div class="row">   
+        <% @counters.each do |counter| %>
+          <div class="col-md-2 box card justify-content-center mb-2 mr-2">
+            <div class="counter-box">
+                  <img class="photo" src="<%= counter.img %>"/><br>
+               <div class="title"><%= counter.countername %></div>
+               <div class="number"><%= counter.counter_number %></div><br>
+               <div class="name"><%= counter.user_id %></div><br>
+               <div class="time"><%= counter.created_at %></div>
+           </div>
+           <form action="/plus/<%= counter.id %>" method="post">
+            <input type="submit" value="+" class="plus rounded" >
+           </form>
+           <form action="/delete/<%= counter.id %>" method="post">
+            <input type="submit" value="delete" class="delete rounded">
+           </form>
+          </div>
         <% end %>
-    </div>
+   </div>
  </div>
+</main>
+
 </body>
 </html>
