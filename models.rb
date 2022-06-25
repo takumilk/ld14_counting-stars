@@ -3,7 +3,11 @@ Bundler.require
 
 ActiveRecord::Base.establish_connection
 class User < ActiveRecord::Base
-   has_secure_password
+    has_secure_password
+     validates :username,
+      presence: true
+    #  validates :password_digest,
+    #   length: {in:5..20}
     has_many :counters
 end
 

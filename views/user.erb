@@ -11,30 +11,57 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       <!--style.css-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-<header>
-    <img src="images/counting_stars_logo2.png" alt="logo2" />
-    <nav class="gnav">
-        <ul class="menu">
-            <li><a href="/user"><%= User.find(session[:user]).username %></li>
-            <li><a href="/signout">ログアウト</a></li>
+<header id="header">
+  <div class="inner">
+    <a href="/counters">
+    <img src="/images/counting_stars_logo2.png" alt="logo2" /></a>
+        <ul class="navi">
+            <li><a href="/user/<%= session[:user] %>"><%= User.find(session[:user]).username %></li>
+            <li><a href="/signout">Signout</a></li>
         </ul>
-    </nav>
+ </div>
 </header>
+
 <main> 
-<div class="card" style="width: 30vw; margin:0 auto;">
-    <div class="profile ">
+
+<div class="user-profile card shadow" style="width: 30vw; margin:0 auto;">
+    <div class="profile mt-3 mb-3">
         <img src="<%= User.find(session[:user]).img %>" alt="profile" class="prof">
     </div>
     <h4><%= User.find(session[:user]).username %></h4>
 </div>
  
- 
- 
- 
- 
+  <div class="">
+   <div class="row justify-content-center mt-4">   
+        <% @usercounters.each do |counter| %>
+          <div class="col-2 card mb-2 mr-2" >
+            <div class="counter-box ">
+                  <img class="photo" src="<%= counter.img %>"/>
+               <div class="title"><%= counter.countername %></div>
+               <div class="number"><%= counter.counter_number %></div>
+               <div class="name"><%= User.find(counter.user_id).username %></div>
+               <div class="time"><%= counter.created_at %></div>
+         
+               <div class="form mt-0 card-footer">
+                   <form action="/plus/<%= counter.id %>" method="post">
+                    <input type="submit" value="+" class="plus rounded" >
+                   </form>
+                   <form action="/delete/<%= counter.id %>" method="post">
+                    <input type="submit" value="delete" class="delete rounded">
+                   </form>
+               </div>
+            </div>
+          </div>
+        <% end %>
+           <div class="col-2 card mb-2 mr-2"></div>
+           <div class="col-2 card mb-2 mr-2"></div>
+           <div class="col-2 card mb-2 mr-2"></div>
+   </div>
+ </div>
 </main>
 
 </body>

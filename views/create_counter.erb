@@ -11,25 +11,28 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
       <!--style.css-->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
 <body>
-<header>
-    <img src="images/counting_stars_logo2.png" alt="logo2" />
-    <nav class="gnav">
-        <ul class="menu">
+<header id="header">
+  <div class="inner">
+    <a href="/counters">
+    <img src="images/counting_stars_logo2.png" alt="logo2" /></a>
+        <ul class="navi">
             <li><a href="/user"><%= User.find(session[:user]).username %></li>
-            <li><a href="/signout">ログアウト</a></li>
+            <li><a href="/signout">Signout</a></li>
         </ul>
-    </nav>
+ </div>
 </header>
 <main>
     <div class="text-center">
     <form action="/newcounter" method="post" enctype="multipart/form-data">
         <input type="text" name="counter_name" placeholder="カウント名" class="text-secondary rounded mb-3" style="width: 20vw; height: 4vh; margin-top: 2%;"><br>
-        <input type="file" name="counter_file"  accept="image/png,image/jpeg" style="width: 20vw; height: 4vh; margin-bottom: 2%; "><br>
-        <input type="submit" value="send" class="rounded" style="color: white; margin-bottom: 1%; width: 20vw; height: 4vh; background: rgba(0,0,0,0.8); ">
+        <input type="file" name="counter_file"  accept="image/png,image/jpeg" style="width: 20vw; height: 4vh; margin-bottom: 1%; border: none; padding-left:10px; "><br>
+        <input type="submit" value="send" class="rounded" style="color: white; margin-bottom: 1%; width: 20vw; height: 4vh; background: rgba(0,0,0,0.7); ">
     </form>
+        <button class="rounded" onclick="location.href='/counters'" style="color: white; margin-top: 2%; margin-bottom: 1%; width: 20vw; height: 4vh; background: rgba(0,0,0,0.7);">カウンター一覧へ戻る</button>
     </div>
 </main>
 </body>

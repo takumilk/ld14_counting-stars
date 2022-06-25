@@ -81,7 +81,11 @@ get "/signout" do
 end
 
 get "/newcounter" do
+   if session[:user].present?
     erb :create_counter
+   else
+     redirect "/"
+   end
 end
 
 post "/newcounter" do
@@ -115,7 +119,12 @@ post "/delete/:id" do
   redirect '/counters'
 end
 
-
-get "/user" do
+get "/user/:id" do
+   if session[:user].present?
+    @usercounters = User.find(params[:id]).counters
+    erb :user
+   else
+     redirect "/"
+   end
     erb :user
 end
