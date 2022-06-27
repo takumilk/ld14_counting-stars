@@ -38,7 +38,7 @@ post "/signin" do
 end
 
 post "/signup" do
-     img_url = ''
+     img_url = '/images/bird.jpg'
      if params[:file]
         img = params[:file]
         tempfile =img[:tempfile]
@@ -89,7 +89,7 @@ get "/newcounter" do
 end
 
 post "/newcounter" do
-     img_url = ''
+     img_url = '/images/bird.jpg'
      if params[:counter_file]
         img = params[:counter_file]
         tempfile =img[:tempfile]
@@ -120,11 +120,23 @@ post "/delete/:id" do
 end
 
 get "/user/:id" do
-   if session[:user].present?
+   if User.find(params[:id]).present?
     @usercounters = User.find(params[:id]).counters
     erb :user
    else
      redirect "/"
    end
     erb :user
+end
+
+post '/user_plus/:id' do
+  counter = Counter.find(params[:id])
+  counter.counter_number = counter.counter_number + 1
+  counter.save
+  redirect '/user/:id'
+end
+
+post "/user_delete/:id" do
+  Counter.find(params[:id]).destroy
+  redirect '/user/:id'
 end

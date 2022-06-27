@@ -88,7 +88,7 @@ header .navi li a:hover {
 
 .photo{
   max-width: 100%;
-  height: auto;
+  min-height: 90%;
 }
 
 a{
@@ -134,7 +134,7 @@ a{
   position: absolute;
   color: white;
   top: 30px;
-  left: 90px;
+  left: 35%;
   font-size: 30px;
   font-weight:700; 
   text-shadow: 2px 2px 3px #808080;
@@ -144,7 +144,7 @@ a{
   position: absolute;/*絶対配置*/
   color: white;
   top:  50px;
-  left: 90px;
+  left: 37%;
   font-size: 80px;
   font-weight:700; 
   text-shadow: 2px 2px 3px #808080;
@@ -154,22 +154,22 @@ a{
   position: absolute;/*絶対配置*/
   font-size: 10px;
   color: white;
-  top: 130px;
-  left: 120px;
+  top: 55%;
+  left: 60%;
 }
 
 .time{
   position: absolute;/*絶対配置*/
   font-size: 10px;
-  /*color: white;*/
-  top: 150px;
-  left: 120px;
+  color: white;
+  top: 60%;
+  left: 60%;
 }
 
 .card-footer{
    border:  none;
    background: none;
-   top: 1--px;
+   top: 1px;
 }
 
 .user-profile{

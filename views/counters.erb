@@ -13,6 +13,7 @@
       <!--style.css-->
     <link rel="stylesheet" href="/style.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAA+JJREFUWEfFl1tMVEcYx2fmnNkLCwirdQVsNRgktC8QAwsr3hpNt2wTr/BioiY1mlaJEZMGmjbGaMQYxXjBRmMf+tCXtQomXVyjUYwI7BoDLyvBFhrtVsRaIOzt7J4zM83ZBIJydtlzED2v811+55vv+88MBB/4g1rzO51ObuPiC5/K/jf8+5/U1NQQLbE0AxB35T4UCDfKSWlGWgNn72h+bwD/tW3PzBrp8yIDLIwDCKx/zFxUNr/q13G1EJoqIHo3rOGfjdwGEOB4QgZEaYl5Ay67ff+9AJCWsnOIkNqpySjHNXGbvYfmHOCvll1ZS5GvA4j0szeSYeTzRytLP645E1EDoXoLYt3ry7F/tEspibg4u0JXfqd7TgHEa6WneEYVSy0xvhFXe76fM4C/nQeNubH7PRPdPy0RRr4/cfmKgqrz0VQhVG1BuLnUZlxI2ye7/+0sDIhi3rxKne2uVxVAtMtRBJ8P2wEjQjJHhDgHh5gjmQ2h0EUpcSUFgJyBfWJx6ytcfdB/fcf8PK7PA0S6LFXqd2KH0cA/pMgKWffqAuAPPX0nQVUGEbItS6HPWa0rBIPXOAS+Uuk/K3NCwe/9IH9rvAn/aKvV5+t6D6HRUD2AMGNWkWdyZixAs00nBmPFp+VpmZwCBgCMdDoqDMPDTZAw60xxtKwzDnoEi6XOaHN1QfkEAQBMG8Pxe2sXmAJCI4qKOxOOm9rsDIhUj38JZRgaMte1v57qrqgD8mVji75pIwfIyVlPB0YDBHDfXY/W3VC6tCQVorE7jvz0kZdntTao3GhB86IDWetdg4mKNqMSiletx3koNaitumyfytmQFODSpT14z6KenmlHb6o0GPkuvywp2bv3sqipArGHVcX4xbBXczPKZ0OupUy3sq1XE4B4tfQHHtKjqf6wkp3E0I+4+tExTQDMXX4XBMV1swEA6fgetHd/rhpA6LAX6of+7QQQmBM5szS+NS4mYWlTQkgGRqI5H9kMle5+JZuETSjdXPk1FxKuKAZmLCBlpB15Op5zXl5fnjlUywfChxPJODEZdvNfPvxZFQBzWVtAROHPeNQbeWH6xvhtu2dCTuMyfnGt1Zgb+glItHhaIiPfCh2ezSkDhNxf5BjHXz2GCOVMOslyasBXxrhl9YkeIPEHCxk4gQRx99TJYZQORTIXrjDZbw29DaG4BTJAWmz0EYiRPNmBRtkzlq6rSySnU4NOyDgMxpqQHi6Jr2E0ENabV6UMIPtEW23bsBDbx0zc84BxwZFkcqpU2riMB1/XI4EUiAZds35T528pb8GEoXxP6AmukrS+fOVqlKQ/4JPdkv8HHM+AKoNbCL4AAAAASUVORK5CYII=">
 </head>
 <body>
 <header id="header">
@@ -27,12 +28,11 @@
 </header>
 
 <main>
-    
     <button class="create_count mb-4" onclick="location.href='/newcounter'">CREATE NEW COUNT</button>
-  <div class="container">
+  <div>
    <div class="row">   
         <% @counters.each do |counter| %>
-          <div class="col-md-2 card align-items-center mb-2 mr-2" >
+          <div class="col-md-3 mb-2 " >
             <div class="counter-box ">
                   <img class="photo" src="<%= counter.img %>"/>
                <div class="title"><%= counter.countername %></div>
@@ -50,9 +50,6 @@
            </div>
           </div>
         <% end %>
-           <div class="col-2 card mb-2 mr-2"></div>
-           <div class="col-2 card mb-2 mr-2"></div>
-           <div class="col-2 card mb-2 mr-2"></div>
    </div>
  </div>
 </main>

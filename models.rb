@@ -6,8 +6,8 @@ class User < ActiveRecord::Base
     has_secure_password
      validates :username,
       presence: true
-    #  validates :password_digest,
-    #   length: {in:5..20}
+     validates :password_digest,
+      length: {maximum: 5}
     has_many :counters
 end
 
