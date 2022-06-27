@@ -55,6 +55,7 @@ post "/signup" do
  
     if user.persisted?
         session[:user] = user.id
+        p user.id
         redirect "/counters"
     else
         redirect "/"
