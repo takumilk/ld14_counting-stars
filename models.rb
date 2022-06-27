@@ -7,7 +7,8 @@ class User < ActiveRecord::Base
      validates :username,
       presence: true
      validates :password,
-      length: {minimum: 5}
+      length: {minimum: 5},
+      format: {with:/(?=.*?[a-z])(?=.*?[0-9])/}
     has_many :counters
 end
 
