@@ -2,9 +2,14 @@ default_env: &default
   adapter: postgresql
   encoding: unicode
   database: counting_stars
+  url: <%= ENV['DATABASE_URL'] %>
 
 development:
   <<: *default
 
 production:
   <<: *default
+  host: dpg-ck0jkeu3ktkc73emkqf0-a
+  database: s_original_3pqc
+  username: s_original_3pqc_user
+  password: EFWvpcLDVuTk7PX7r9NRONtCqi3x7mXT
