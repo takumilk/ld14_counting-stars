@@ -9,7 +9,7 @@ development:
 
 production:
   <<: *default
-  host: dpg-ck0jkeu3ktkc73emkqf0-a
-  database: s_original_3pqc
-  username: s_original_3pqc_user
-  password: EFWvpcLDVuTk7PX7r9NRONtCqi3x7mXT
+  host: dpg-ck961av0vg2c738a9rvg-a
+  database: s_original_hh66
+  username: s_original_hh66_user
+  password: ROHboYu9yhwSnW5FK8oqf3J8xoPbyVwF
