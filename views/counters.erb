@@ -35,8 +35,10 @@
           <div class="col-md-3 mb-2 " >
             <div class="counter-box ">
                   <img class="photo" src="<%= counter.img %>"/>
-               <div class="title"><%= counter.countername %></div>
-               <div class="number"><%= counter.counter_number %></div>
+            
+                 <div class="title"><%= counter.countername %></div>
+                 <div class="number"><%= counter.counter_number %></div>
+             
                <div class="name"><%= User.find(counter.user_id).username %></div>
                <div class="time"><%= counter.created_at %></div>
            </div>
